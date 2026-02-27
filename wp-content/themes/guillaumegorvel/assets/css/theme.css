@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body * {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: "Nunito", sans-serif;
+}
+h2 {
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+h2 + p:first-child {
+    margin-bottom: 25px;
+}
+
+main.main-content > .wp-block-group:has(.entry-content){
+    padding: 0!important;
+}
+/*.wp-block-group.alignfull.has-global-padding.is-layout-constrained.wp-block-group-is-layout-constrained {*/
+/*    padding: 0!important;*/
+/*}*/
+ul.wp-block-list, ol.wp-block-list {
+    margin: 0 0 25px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.wp-block-button a {
+    color: black !important;
+    background: #DEFF00;
+    border: solid 2px #DEFF00;
+    padding: 8px 24px;
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+    text-align: center;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+}
+main.main-content {
+    padding: 0;
+}
+
+main.main-content .wp-block-group.alignfull {
+    max-width: 100%;
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+
+main.main-content .entry-content .wp-block-group.alignfull>.wp-block-group,
+main.main-content .entry-content .wp-block-group.alignfull>.wp-block-columns,
+main.main-content .entry-content .wp-block-columns.alignfull>.wp-block-group,
+main.main-content .entry-content .wp-block-columns.alignfull>.wp-block-columns {
+    max-width: calc(1440px + 50px * 2);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}

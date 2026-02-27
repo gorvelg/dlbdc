@@ -1,0 +1,53 @@
+footer.wp-block-template-part {
+    background: #49306B;
+}
+
+footer.wp-block-template-part a:focus,
+footer.wp-block-template-part a:hover {
+    text-decoration: none;
+}
+
+.wp-block-template-part p, .wp-block-template-part a{
+    color: white;
+}
+
+.ft-icon {
+    height: 30px;
+}
+
+
+footer.wp-block-template-part .footer-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-links a {
+    margin: 0!important;
+}
+footer.wp-block-template-part .footer-content {
+    background: #DEFF00;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px ;
+    padding-block: 56px;
+}
+footer.wp-block-template-part .footer-content .footer-title {
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #2F2B36;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+footer.wp-block-template-part .footer-content ul li {
+    font-size: 18px;
+    color: #2F2B36;
+}
+
+footer.wp-block-template-part .footer-content, footer.wp-block-template-part .footer-links {
+    max-width: 1440px;
+}
+
+footer.wp-block-template-part .footer-links p,
+footer.wp-block-template-part .footer-links p a{
+    font-size: 18px;
+}

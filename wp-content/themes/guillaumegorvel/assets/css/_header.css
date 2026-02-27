@@ -1,0 +1,108 @@
+
+header.wp-block-template-part {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #fff;
+}
+
+header.wp-block-template-part > .wp-block-group {}
+
+header.wp-block-template-part > .wp-block-group::after {
+    content: "";
+    width: 100%;
+    height: 172px;
+    display: block;
+    position: absolute;
+    top: -35px;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transition: all ease 1s;
+    background-image: url("/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_header-blanc.svg") !important;
+}
+
+
+.header-menu {
+    display: flex;
+    align-items: center;
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 1;
+    height: 70px;
+    position: relative;
+}
+
+.header-menu > .header-menu-left,
+.header-menu > .header-menu-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+    z-index: 1;
+    padding-block: 10px;
+    height: 100%;
+}
+
+.header-menu > .header-menu-left {
+    justify-content: flex-start;
+}
+
+.header-menu > .header-menu-right {
+    justify-content: flex-end;
+}
+
+.header-menu > .header-menu-left nav,
+.header-menu > .header-menu-right nav {
+    margin: 0!important;
+}
+
+
+.header-menu > .wp-block-site-logo {
+    flex: 0 0 auto;
+    z-index: 1;
+    padding-block: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-menu > .wp-block-site-logo a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.header-menu > .wp-block-site-logo img {
+    width: 160px;
+    height: auto;
+    translate: 0 10px;
+}
+
+.header-menu > .wp-block-buttons {
+    z-index: 1;
+}
+
+header.wp-block-template-part ul li.header-menu-btn a {
+    color: black !important;
+    background: #DEFF00;
+    border: solid 2px #DEFF00;
+    padding: 8px 24px;
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+    text-align: center;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    margin-left: auto;
+    margin-right: auto;
+}

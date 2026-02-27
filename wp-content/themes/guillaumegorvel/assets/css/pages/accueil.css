@@ -1,0 +1,155 @@
+.hero {
+    justify-content: space-between;
+}
+.hero-img img {
+    border-radius: 24px;
+}
+
+.about{
+    padding-block: 50px;
+}
+
+section:has(.about){
+    /*margin-block: 0!important;*/
+    /*background-color: #483778;*/
+}
+section:has(.about) svg.book-top,
+section:has(.about) svg.book-bottom {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    height: auto;
+    margin: 0;
+}
+.about-content {
+    display: flex;
+    padding-top: 50px;
+}
+.about-content img {
+    position: sticky;
+    top: 100px;
+}
+.about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.about-cards .about-card {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-block: 40px;
+    display: flex;
+    border-radius: 160px;
+    flex-direction: column;
+    justify-content: center;
+    border: 4px dashed #483778;
+    position: relative;
+}
+.about-cards .about-card:nth-child(odd){
+    background-color: #B4A8D7;
+    border-bottom-right-radius: 0;
+}
+.about-cards .about-card:nth-child(even){
+    background-color: #E9E4F5;
+    border-bottom-left-radius: 0;
+}
+.about-cards .about-card:nth-child(odd) .pin {
+    right: 0;
+    transform: translate(50%, 50%);
+}
+.about-cards .about-card:nth-child(even) .pin{
+    left: 0;
+    transform: translate(-50%, 50%);
+}
+.pin {
+    background: #dfff00;
+    border: 4px solid white;
+    position: absolute;
+    bottom: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    width: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.coccinelle {
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_coccinelle.svg);
+    height: 64px;
+    width: 43px;
+    z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.abeille {
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_abeille.svg);
+    height: 54px;
+    width: 54px;
+    z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Prestations */
+section:has(.prestation){
+    position: relative;
+    background: #94E1FF;
+    padding-bottom: 400px;
+}
+section:has(.prestation)::before {
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_nuage.svg);
+    content: '';
+    height: 500px;
+    width: 100%;
+    z-index: 1;
+    display: block;
+    position: absolute;
+    top: 0px;
+    background-repeat: no-repeat;
+}
+
+section:has(.prestation)::after {
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_arbres.svg);
+    content: '';
+    height: 335px;
+    width: 100%;
+    z-index: 1;
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    background-repeat: no-repeat;
+}
+
+.prestation {
+    padding-top: 40px;
+    z-index: 2;
+    position: relative;
+}
+.prestation h2{
+    padding-top: 50px;
+}
+.prestation h2+p{
+    margin-bottom: 70px;
+}
+.prestation-grid{
+    grid-template-columns: repeat(2, minmax(0, 514px));
+    justify-content: center;
+    gap: 32px;
+}
+.prestation-item {
+    overflow: hidden;
+}
+.prestation-item h3 {
+    font-family: "Nunito", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+}
+.prestation-item-content{
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    margin: 0;
+    padding: 24px 24px 48px 12px;
+    gap: 12px;
+}
