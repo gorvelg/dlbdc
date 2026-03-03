@@ -93,6 +93,13 @@ function theme_enqueue_styles() {
     );
 
     wp_enqueue_style(
+        'contact-style',
+        get_stylesheet_directory_uri() . '/assets/css/_contact.css',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/css/_contact.css')
+    );
+
+    wp_enqueue_style(
         'header-style',
         get_stylesheet_directory_uri() . '/assets/css/_header.css',
         [],
@@ -110,4 +117,6 @@ function theme_enqueue_styles() {
         wp_enqueue_style('accueil-style');
     }
 
+    wp_register_script('contact-script', get_stylesheet_directory_uri() . '/assets/js/contact.js');
+    wp_enqueue_script('contact-script');
 }

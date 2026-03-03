@@ -5,6 +5,10 @@ body * {
     font-family: 'Montserrat', sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 h1 {
     font-family: "Nunito", sans-serif;
 }
@@ -14,8 +18,10 @@ h2 {
     font-size: 60px;
     margin-bottom: 30px;
 }
-h2 + p:first-child {
+h2 + p {
     margin-bottom: 25px;
+    font-weight: 600;
+    color: #483778;
 }
 
 main.main-content > .wp-block-group:has(.entry-content){
@@ -67,4 +73,8 @@ main.main-content .entry-content .wp-block-columns.alignfull>.wp-block-columns {
     padding-left: 50px;
     padding-right: 50px;
 
+}
+
+footer.wp-block-template-part {
+    margin-block-start: 0;
 }

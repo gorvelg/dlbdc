@@ -1,5 +1,5 @@
 footer.wp-block-template-part {
-    background: #49306B;
+    background: #483778;
 }
 
 footer.wp-block-template-part a:focus,
@@ -50,4 +50,10 @@ footer.wp-block-template-part .footer-content, footer.wp-block-template-part .fo
 footer.wp-block-template-part .footer-links p,
 footer.wp-block-template-part .footer-links p a{
     font-size: 18px;
+}
+
+footer.wp-block-template-part .footer-content .wp-block-site-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

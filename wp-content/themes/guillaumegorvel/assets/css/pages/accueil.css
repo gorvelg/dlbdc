@@ -153,3 +153,52 @@ section:has(.prestation)::after {
     padding: 24px 24px 48px 12px;
     gap: 12px;
 }
+
+/* Galerie */
+section:has(.galerie-content) {
+    position: relative;
+    margin-top: 0!important;
+}
+section:has(.galerie-content)::before {
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_wave-top.svg);
+    content: '';
+    height: 183px;
+    width: 100%;
+    z-index: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section:has(.galerie-content)::after {
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_wave-bottom.svg);
+    content: '';
+    height: 183px;
+    width: 100%;
+    z-index: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.galerie-content {
+    display: flex;
+    align-items: center;
+    padding-block: 60px;
+    gap: 100px;
+}
+
+/* Contact */
+section:has(.contact) {
+    position: relative;
+    margin-top: 0!important;
+}
+
+.contact h2 {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.contact form {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
