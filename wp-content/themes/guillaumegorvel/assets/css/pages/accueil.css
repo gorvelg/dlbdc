@@ -5,8 +5,14 @@
     border-radius: 24px;
 }
 
+@media (max-width: 1024px){
+    .hero {
+        flex-direction: column;
+    }
+}
 .about{
     padding-block: var(--padding-x);
+    scroll-margin-top: 55px;
 }
 
 section:has(.about){
@@ -157,6 +163,7 @@ section:has(.prestation){
     position: relative;
     background: #94E1FF;
     padding-bottom: 400px;
+    scroll-margin-top: 55px;
 }
 section:has(.prestation)::before {
     background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_nuage.svg);

@@ -3,6 +3,7 @@
 
 :root {
     --padding-x: 100px;
+    --header-h: 135px;
 
     --text-xs: 12px;
     --text-sm: 14px;
@@ -11,7 +12,7 @@
     --text-lg: 20px;
     --text-xl: 24px;
 
-    --h1: 60px;
+    --h1: 36px;
     --h2: 60px;
     --h3: 24px;
 }
@@ -20,6 +21,7 @@
     :root {
         --padding-x: 50px;
 
+        --h1: 36px;
         --h2: 50px;
         --h3: 22px;
 
@@ -41,6 +43,7 @@
         --text-lg: 18px;
         --text-xl: 20px;
 
+        --h1: 32px;
         --h2: 40px;
         --h3: 20px;
 
@@ -64,9 +67,13 @@
     :root {
         --padding-x: 20px;
 
+        --h1: 28px;
         --h2: 25px;
 
     }
+}
+html{
+    scroll-behavior: smooth;
 }
 
 body * {
@@ -79,6 +86,7 @@ body * {
 
 h1 {
     font-family: "Nunito", sans-serif;
+    font-size: var(--h1);
 }
 h2 {
     font-family: "Nunito", sans-serif;
@@ -99,6 +107,10 @@ p, a, li {
     font-weight: 400;
 }
 
+main.main-content {
+    margin-top: 0!important;
+    padding-top: var(--header-h)!important;
+}
 main.main-content > .wp-block-group:has(.entry-content){
     padding: 0!important;
 }
