@@ -6,7 +6,7 @@
 }
 
 .about{
-    padding-block: 50px;
+    padding-block: var(--padding-x);
 }
 
 section:has(.about){
@@ -20,6 +20,13 @@ section:has(.about) svg.book-bottom {
     display: block;
     height: auto;
     margin: 0;
+    position: relative;
+}
+section:has(.about) svg.book-top {
+    top: -1px;
+}
+section:has(.about) svg.book-bottom {
+    bottom: -1px;
 }
 .about-content {
     display: flex;
@@ -27,7 +34,7 @@ section:has(.about) svg.book-bottom {
 }
 .about-content img {
     position: sticky;
-    top: 100px;
+    top: 25%;
 }
 .about-cards {
     display: flex;
@@ -90,8 +97,62 @@ section:has(.about) svg.book-bottom {
     background-size: contain;
     background-repeat: no-repeat;
 }
+@media (max-width: 1400px) {
+    .about .wp-block-image {
+        width: 400px;
+    }
+}
 
-/* Prestations */
+@media (max-width: 1224px) {
+    .about-content{
+        flex-direction: column;
+    }
+    .about .wp-block-image {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about-cards{
+        max-width: 100%;
+        padding-left: var(--padding-x);
+        padding-right: var(--padding-x);
+    }
+
+    .about .wp-block-image {
+        width: 100%;
+    }
+    .about .wp-block-image img {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .pin {
+        width: 60px;
+    }
+
+    .coccinelle {
+        height: 46px;
+        width: 30px;
+    }
+    .abeille {
+        height: 36px;
+        width: 36px;
+    }
+}
+@media (max-width: 550px) {
+    .about-cards .about-card {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-block: 40px;
+        border-radius: 40px;
+    }
+}
+
+    /* Prestations */
 section:has(.prestation){
     position: relative;
     background: #94E1FF;
@@ -105,20 +166,23 @@ section:has(.prestation)::before {
     z-index: 1;
     display: block;
     position: absolute;
-    top: 0px;
+    top: -1px;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 section:has(.prestation)::after {
     background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_arbres.svg);
     content: '';
-    height: 335px;
+    /*height: 335px;*/
+    height: calc(100vw / 6);
     width: 100%;
     z-index: 1;
     display: block;
     position: absolute;
     bottom: -5px;
     background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .prestation {
@@ -142,7 +206,7 @@ section:has(.prestation)::after {
 }
 .prestation-item h3 {
     font-family: "Nunito", sans-serif;
-    font-size: 24px;
+    font-size: var(--h3);
     font-weight: 800;
 }
 .prestation-item-content{
@@ -154,7 +218,48 @@ section:has(.prestation)::after {
     gap: 12px;
 }
 
-/* Galerie */
+@media (max-width: 1400px) {
+    section:has(.prestation) {
+        padding-bottom: 325px;
+    }
+}
+
+@media (max-width: 1224px) {
+    section:has(.prestation) {
+        padding-bottom: 270px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .prestation-grid {
+        grid-template-columns: repeat(1, minmax(0, 514px));
+    }
+
+    section:has(.prestation) {
+        padding-bottom: 250px;
+    }
+}
+
+@media (max-width: 786px) {
+    section:has(.prestation) {
+        padding-bottom: 165px;
+    }
+}
+
+@media (max-width: 550px) {
+    .prestation-item-content{
+        grid-template-columns: 1fr;
+    }
+
+    section:has(.prestation) {
+        padding-bottom: 165px;
+    }
+
+}
+
+
+
+    /* Galerie */
 section:has(.galerie-content) {
     position: relative;
     margin-top: 0!important;
@@ -162,7 +267,8 @@ section:has(.galerie-content) {
 section:has(.galerie-content)::before {
     background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_wave-top.svg);
     content: '';
-    height: 183px;
+    /*height: 183px;*/
+    height: 15vw;
     width: 100%;
     z-index: 0;
     display: block;
@@ -172,18 +278,27 @@ section:has(.galerie-content)::before {
 section:has(.galerie-content)::after {
     background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_wave-bottom.svg);
     content: '';
-    height: 183px;
+    /*height: 183px;*/
+    height: 15vw;
     width: 100%;
     z-index: 0;
     display: block;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+    bottom: -1px;
 }
 .galerie-content {
     display: flex;
     align-items: center;
     padding-block: 60px;
     gap: 100px;
+}
+
+@media (max-width: 1024px) {
+    .galerie-content {
+        flex-direction: column;
+    }
 }
 
 /* Contact */

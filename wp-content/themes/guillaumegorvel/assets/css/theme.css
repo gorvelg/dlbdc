@@ -1,6 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+:root {
+    --padding-x: 100px;
+
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-base: 18px;
+    --text-lg: 20px;
+    --text-xl: 24px;
+
+    --h1: 60px;
+    --h2: 60px;
+    --h3: 24px;
+}
+
+@media (max-width: 1600px) {
+    :root {
+        --padding-x: 50px;
+
+        --h2: 50px;
+        --h3: 22px;
+
+    }
+}
+
+@media (max-width: 1400px) {
+
+}
+
+@media (max-width: 1224px) {
+    :root {
+        --padding-x: 50px;
+
+        --text-xs: 10px;
+        --text-sm: 12px;
+        --text-md: 14px;
+        --text-base: 16px;
+        --text-lg: 18px;
+        --text-xl: 20px;
+
+        --h2: 40px;
+        --h3: 20px;
+
+    }
+}
+@media (max-width: 1024px) {
+    :root {
+        --padding-x: 50px;
+
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --padding-x: 30px;
+
+    }
+}
+
+@media (max-width: 550px) {
+    :root {
+        --padding-x: 20px;
+
+        --h2: 25px;
+
+    }
+}
+
 body * {
     font-family: 'Montserrat', sans-serif;
 }
@@ -15,13 +83,20 @@ h1 {
 h2 {
     font-family: "Nunito", sans-serif;
     font-weight: 800;
-    font-size: 60px;
+    font-size: var(--h2);
     margin-bottom: 30px;
 }
 h2 + p {
     margin-bottom: 25px;
     font-weight: 600;
     color: #483778;
+}
+
+p, a, li {
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--text-base);
+    line-height: 185%;
+    font-weight: 400;
 }
 
 main.main-content > .wp-block-group:has(.entry-content){
@@ -67,14 +142,15 @@ main.main-content .entry-content .wp-block-group.alignfull>.wp-block-group,
 main.main-content .entry-content .wp-block-group.alignfull>.wp-block-columns,
 main.main-content .entry-content .wp-block-columns.alignfull>.wp-block-group,
 main.main-content .entry-content .wp-block-columns.alignfull>.wp-block-columns {
-    max-width: calc(1440px + 50px * 2);
+    max-width: calc(1440px + var(--padding-x) * 2);
     margin-left: auto;
     margin-right: auto;
-    padding-left: 50px;
-    padding-right: 50px;
-
+    padding-left: var(--padding-x);
+    padding-right: var(--padding-x);
 }
+
 
 footer.wp-block-template-part {
     margin-block-start: 0;
 }
+

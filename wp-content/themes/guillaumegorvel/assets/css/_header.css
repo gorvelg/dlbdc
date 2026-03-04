@@ -5,7 +5,7 @@ header.wp-block-template-part {
     left: 0;
     right: 0;
     z-index: 10;
-    background: #fff;
+    background: transparent;
 }
 
 header.wp-block-template-part > .wp-block-group {}
@@ -29,12 +29,14 @@ header.wp-block-template-part > .wp-block-group::after {
 .header-menu {
     display: flex;
     align-items: center;
-    max-width: 1440px;
-    margin-right: auto;
-    margin-left: auto;
     z-index: 1;
     height: 70px;
     position: relative;
+    max-width: calc(1440px + var(--padding-x) * 2);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--padding-x);
+    padding-right: var(--padding-x);
 }
 
 .header-menu > .header-menu-left,

@@ -49,11 +49,28 @@ footer.wp-block-template-part .footer-content, footer.wp-block-template-part .fo
 
 footer.wp-block-template-part .footer-links p,
 footer.wp-block-template-part .footer-links p a{
-    font-size: 18px;
+    font-size: var(--text-sm);
+    text-align: center;
 }
 
 footer.wp-block-template-part .footer-content .wp-block-site-logo {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media (max-width: 1024px) {
+    .footer-content > .wp-block-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+    .footer-content .wp-block-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    footer.wp-block-template-part .footer-links {
+        flex-direction: column;
+    }
 }
