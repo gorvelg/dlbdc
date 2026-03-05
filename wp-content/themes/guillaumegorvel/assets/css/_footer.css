@@ -8,7 +8,11 @@ footer.wp-block-template-part a:hover {
 }
 
 .wp-block-template-part p, .wp-block-template-part a{
-    color: white;
+    color: black;
+}
+
+.wp-block-template-part a {
+    text-decoration: none;
 }
 
 .ft-icon {
@@ -21,8 +25,12 @@ footer.wp-block-template-part .footer-links {
     justify-content: space-between;
 }
 
+.footer-links p {
+    color: white;
+}
 .footer-links a {
     margin: 0!important;
+    color: white;
 }
 footer.wp-block-template-part .footer-content {
     background: #DEFF00;
@@ -46,6 +54,31 @@ footer.wp-block-template-part .footer-content .footer-title {
 footer.wp-block-template-part .footer-content ul li {
     font-size: 18px;
     color: #2F2B36;
+    display: flex;
+    align-items: center;
+}
+
+
+footer.wp-block-template-part .footer-content ul li.tel::before
+{
+    content: '';
+    height: 22px;
+    width: 22px;
+    background-size: contain;
+    background-image: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_tel.svg);
+    display: inline-block;
+    margin-right: 8px;
+}
+
+footer.wp-block-template-part .footer-content ul li.mail::before
+{
+    content: '';
+    height: 22px;
+    width: 22px;
+    background-size: contain;
+    background-image: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_mail.svg);
+    display: inline-block;
+    margin-right: 8px;
 }
 
 footer.wp-block-template-part .wp-block-group:has(.footer-content) {

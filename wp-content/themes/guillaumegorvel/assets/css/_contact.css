@@ -35,6 +35,10 @@ form .input-contact label {
     display: block;
 }
 
+.wpcf7 form .wpcf7-response-output {
+    display: none;
+}
+
 form input:not([type=checkbox],[type=radio],[type=submit]), form select, form textarea {
     padding: 10px 15px;
     margin-top: 0;
@@ -46,6 +50,10 @@ form input:not([type=checkbox],[type=radio],[type=submit]), form select, form te
     /*transition: all ease .3s;*/
     height: 48px;
     background-color: transparent;
+}
+
+form select option {
+    color: black;
 }
 
 form input:focus,
@@ -157,6 +165,90 @@ form .wpcf7-not-valid-tip {
     margin: 0 !important;
     position: relative;
 }
+
+/* Zone complète du champ checkbox CF7 */
+.wpcf7-form .wpcf7-checkbox{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    padding: 0 10px;
+}
+
+/* Chaque item */
+.wpcf7-form .wpcf7-checkbox .wpcf7-list-item{
+    margin: 0; /* CF7 met parfois des marges */
+}
+
+/* Le label devient le "bouton" cliquable */
+.wpcf7-form .wpcf7-checkbox .wpcf7-list-item label{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* On cache l'input mais on le garde accessible */
+.wpcf7-form .wpcf7-checkbox input[type="checkbox"]{
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+/* On dessine la case AVANT le texte */
+.wpcf7-form .wpcf7-checkbox .wpcf7-list-item-label{
+    position: relative;
+    padding-left: 30px;
+}
+
+/* La case */
+.wpcf7-form .wpcf7-checkbox .wpcf7-list-item-label::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_checkbox.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: transparent;
+    transition: .15s ease;
+}
+
+/* Le "check" */
+.wpcf7-form .wpcf7-checkbox .wpcf7-list-item-label::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: transparent;
+    transition: .15s ease;
+}
+
+.wpcf7-form .wpcf7-checkbox label:has(input:checked) .wpcf7-list-item-label::after{
+    opacity: 1;
+}
+
+.wpcf7-form .wpcf7-checkbox input:checked + .wpcf7-list-item-label::after{
+    opacity: 1;
+    background-image: url("/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_checkbox-checked.svg");
+}
+
+.wpcf7-form .wpcf7-checkbox input:focus-visible + .wpcf7-list-item-label::before{
+    box-shadow: 0 0 0 4px rgba(37,99,235,.25);
+}
+
+
 
 @media screen and (max-width: 768px) {
     form .input-contact.third,
