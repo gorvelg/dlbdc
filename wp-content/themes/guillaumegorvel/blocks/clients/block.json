@@ -1,0 +1,17 @@
+{
+  "apiVersion": 2,
+  "name": "gg/clients",
+  "title": "Clients (slider)",
+  "category": "widgets",
+  "icon": "groups",
+  "render": "file:./render.php",
+
+  "style": [
+    "file:../../assets/vendor/swiper/swiper-bundle.min.css",
+    "file:./style.css"
+  ],
+  "script": [
+    "file:../../assets/vendor/swiper/swiper-bundle.min.js",
+    "file:./frontend.js"
+  ]
+}

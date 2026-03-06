@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
-  "name": "johannmunier/test",
-  "title": "Test (Johannmunier)",
+  "name": "guillaumegorvel/test",
+  "title": "Test (Guillaume Gorvel)",
   "category": "widgets",
   "icon": "smiley",
   "description": "Bloc Test rendu en PHP depuis le thème enfant",

@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('coucou');
     document.querySelectorAll(".wpcf7-form input, .wpcf7-form textarea").forEach(function(input) {
         input.addEventListener("focus", function() {
             var label = this.closest('.input-contact').querySelector('label.in-input');

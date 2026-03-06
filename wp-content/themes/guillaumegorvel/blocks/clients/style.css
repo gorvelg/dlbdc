@@ -1,0 +1,18 @@
+.swiper-wrapper{
+    align-items: center;
+}
+.is-logo-empty {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    aspect-ratio: 1/1;
+
+}
+
+.is-logo-empty p {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}

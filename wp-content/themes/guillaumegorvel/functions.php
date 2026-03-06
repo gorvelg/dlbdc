@@ -18,31 +18,38 @@ add_action('init', function () {
 /**
  * 2) CPT: Programmes (DOIT être sur init, hors des autres hooks)
  */
-//add_action('init', function () {
-//    register_post_type('programme', [
-//        'labels' => [
-//            'name'          => 'Programmes',
-//            'singular_name' => 'Programme',
-//            'add_new_item'  => 'Ajouter un programme',
-//            'edit_item'     => 'Modifier le programme',
-//            'all_items'     => 'Tous les programmes',
-//        ],
-//        'public'       => true,
-//        'show_in_rest' => true,
-//        'menu_icon'    => 'dashicons-welcome-learn-more',
-//        'supports'     => ['title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'],
-//        'has_archive'  => true,
-//        'rewrite'      => ['slug' => 'programmes'],
-//    ]);
-//});
+add_action('init', function () {
+    register_post_type('client', [
+        'labels' => [
+            'name'          => 'Clients',
+            'singular_name' => 'Client',
+            'add_new_item'  => 'Ajouter un client',
+            'edit_item'     => 'Modifier le client',
+            'all_items'     => 'Tous les clients',
+        ],
+        'public'       => true,
+        'show_in_rest' => true,
+        'menu_icon'    => 'dashicons-welcome-learn-more',
+        'supports'     => ['title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'],
+        'has_archive'  => true,
+        'rewrite'      => ['slug' => 'clients'],
+    ]);
+});
 
 /**
  * 3) Un seul JS éditeur pour enregistrer tous les blocs (preview PHP)
  */
 add_action('enqueue_block_editor_assets', function () {
-    $blocks_dir = get_stylesheet_directory() . '/blocks';
+    $theme_dir = get_stylesheet_directory();
+    $theme_uri = get_stylesheet_directory_uri();
 
+    $script_path = $theme_dir . '/blocks/blocks-editor.js';
+    $script_uri  = $theme_uri . '/blocks/blocks-editor.js';
+
+    // Build GG_BLOCKS depuis block.json
+    $blocks_dir = $theme_dir . '/blocks';
     $blocks = [];
+
     foreach (glob($blocks_dir . '/*/block.json') as $json_path) {
         $data = json_decode(file_get_contents($json_path), true);
         if (!empty($data['name'])) {
@@ -58,11 +65,11 @@ add_action('enqueue_block_editor_assets', function () {
         }
     }
 
-    wp_register_script(
+    wp_enqueue_script(
         'gg-blocks-editor',
-        get_stylesheet_directory_uri() . '/blocks/blocks-editor.js',
+        $script_uri,
         ['wp-blocks', 'wp-element', 'wp-server-side-render'],
-        '1.0.0',
+        file_exists($script_path) ? filemtime($script_path) : null,
         true
     );
 
@@ -71,8 +78,6 @@ add_action('enqueue_block_editor_assets', function () {
         'window.GG_BLOCKS=' . wp_json_encode($blocks) . ';',
         'before'
     );
-
-    wp_enqueue_script('gg-blocks-editor');
 });
 
 function theme_enqueue_styles() {
