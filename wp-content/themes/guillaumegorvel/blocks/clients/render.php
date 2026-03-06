@@ -3,11 +3,10 @@
  * blocks/clients/render.php
  */
 
-$posts_to_show = isset($attributes['postsToShow']) ? (int) $attributes['postsToShow'] : 12;
 
 $q = new WP_Query([
     'post_type'      => 'client',
-    'posts_per_page' => $posts_to_show,
+    'posts_per_page' => '-1',
     'post_status'    => 'publish',
     'orderby'        => 'menu_order',
     'order'          => 'ASC',
@@ -36,7 +35,9 @@ if (!$q->have_posts()) {
                                 <p><?= esc_html($nom) ?></p>
                             </div>
                         <?php else : ?>
-                            <?= wp_get_attachment_image($logo['ID'], 'medium'); ?>
+                            <div class="is-logo">
+                                <?= wp_get_attachment_image($logo['ID'], 'medium'); ?>
+                            </div>
                         <?php endif ?>
                     </div>
 

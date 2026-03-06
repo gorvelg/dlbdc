@@ -66,7 +66,7 @@ section:has(.about)::before {
 }
 .about-content img {
     position: sticky;
-    top: 25%;
+    top: 20%;
 }
 .about-cards {
     display: flex;
@@ -321,19 +321,38 @@ section:has(.galerie-content)::before {
         flex-direction: column;
     }
 }
-/* Avis Google*/
+/* Clients */
 
-section:has(.avis) {
+section:has(.clients){
     border-top-left-radius: 80px;
     border-top-right-radius: 80px;
 }
+
+.clients {
+    padding-block: 100px 30px;
+}
+
+.clients .trust-clients {
+    margin-top: 32px;
+}
+
+/* Avis Google*/
+
+section:has(.avis) {
+    margin-top: 0;
+}
 .avis {
     padding-top: 60px;
+    gap: 50px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
 .avis h2 {
-    margin-bottom: 60px;
 }
+
+
 
 section:has(.avis)::after {
     background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_wave-bottom.svg);
@@ -371,6 +390,17 @@ section:has(.avis)::after {
     transform: translateX(-50%);
     border-radius: 24px;
     box-shadow: 0px 3px 6px 0px #00000012;
+}
+
+@media (max-width: 1224px) {
+    .avis {
+        flex-direction: column;
+    }
+}
+@media (max-width: 768px) {
+    .avis-box {
+        max-width: 100%;
+    }
 }
 /* Contact */
 section:has(.contact) {

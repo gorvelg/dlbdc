@@ -4,17 +4,46 @@ document.addEventListener("DOMContentLoaded", () => {
         el.dataset.swiperInitialized = "1";
 
         new Swiper(el, {
-            slidesPerGroup: 3,
-            slidesPerView: 3,
+            slidesPerGroup: 1,
+            slidesPerView: 1,
             spaceBetween: 8,
             watchOverflow: false,
-            loop: true,
-            autoplay: {
-                delay: 2500,              // temps entre chaque mouvement
-                disableOnInteraction: false, // continue après interaction
-                pauseOnMouseEnter: true,  // pause au survol (optionnel)
+            // loop: true,
+            // autoplay: {
+            //     delay: 2500,
+            //     disableOnInteraction: false,
+            //     pauseOnMouseEnter: true,
+            // },
+            // speed: 600,
+
+            breakpoints: {
+                // when window width is >= 480px
+                480: {
+                    slidesPerGroup: 1,
+                    slidesPerView: 1.2,
+                    spaceBetween: 8
+                },
+                550: {
+                    slidesPerGroup: 2,
+                    slidesPerView: 1.5,
+                    spaceBetween: 8
+                },
+                768: {
+                    slidesPerGroup: 2,
+                    slidesPerView: 2.2,
+                    spaceBetween: 8
+                },
+                1120: {
+                    slidesPerGroup: 3,
+                    slidesPerView: 3.2,
+                    spaceBetween: 8
+                },
+                1400: {
+                    slidesPerGroup: 4,
+                    slidesPerView: 4,
+                    spaceBetween: 8
+                },
             },
-            speed: 600,
             navigation: {
                 nextEl: el.querySelector(".swiper-button-next"),
                 prevEl: el.querySelector(".swiper-button-prev"),

@@ -140,6 +140,19 @@ ul.wp-block-list, ol.wp-block-list {
     margin-left: auto;
     margin-right: auto;
 }
+
+.wp-block-button a:hover {
+    background: #473674;
+    color: white !important;
+    border: 2px solid #473674;
+}
+
+.has-primary-background-color .wp-block-button a:hover {
+    background: white;
+    color: black!important;
+    border: 2px solid white;
+}
+
 main.main-content {
     padding: 0;
 }

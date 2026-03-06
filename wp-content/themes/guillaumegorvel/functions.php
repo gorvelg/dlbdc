@@ -30,7 +30,7 @@ add_action('init', function () {
         'public'       => true,
         'show_in_rest' => true,
         'menu_icon'    => 'dashicons-welcome-learn-more',
-        'supports'     => ['title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'],
+        'supports'     => ['title'],
         'has_archive'  => true,
         'rewrite'      => ['slug' => 'clients'],
     ]);
