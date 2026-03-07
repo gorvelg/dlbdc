@@ -2,8 +2,6 @@
 /*
 Template Name: Galerie
 */
-wp_head();
-echo do_blocks('<!-- wp:template-part {"slug":"dlbdc-header-menu","theme":"guillaumegorvel","area":"header"} /-->');
 
 function gg_extract_gallery_ids($blocks) {
     $ids = [];
@@ -38,41 +36,51 @@ function gg_extract_gallery_ids($blocks) {
 
     return array_unique(array_filter($ids));
 }
+
+/*
+ * IMPORTANT :
+ * on rend d'abord les blocs en mémoire pour que leurs assets soient enqueue
+ * avant wp_head()
+ */
+$header_markup = do_blocks('<!-- wp:template-part {"slug":"dlbdc-header-menu","theme":"guillaumegorvel","area":"header"} /-->');
+$footer_markup = do_blocks('<!-- wp:template-part {"slug":"footer","theme":"guillaumegorvel"} /-->');
+
+ob_start();
 ?>
 
-    <main class="wp-block-group main-content has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-        <?php while (have_posts()) : the_post(); ?>
+<main class="wp-block-group main-content has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+    <?php while (have_posts()) : the_post(); ?>
 
-            <?php
-            $media_taxonomy    = 'attachment_category';
-            $content           = get_the_content();
-            $blocks            = parse_blocks($content);
-            $gallery_image_ids = gg_extract_gallery_ids($blocks);
-            $used_terms        = [];
+    <?php
+    $media_taxonomy    = 'attachment_category';
+    $content           = get_the_content();
+    $blocks            = parse_blocks($content);
+    $gallery_image_ids = gg_extract_gallery_ids($blocks);
+    $used_terms        = [];
 
-            if (!empty($gallery_image_ids)) {
-                foreach ($gallery_image_ids as $image_id) {
-                    $terms = get_the_terms($image_id, $media_taxonomy);
+    if (!empty($gallery_image_ids)) {
+        foreach ($gallery_image_ids as $image_id) {
+            $terms = get_the_terms($image_id, $media_taxonomy);
 
-                    if ($terms && !is_wp_error($terms)) {
-                        foreach ($terms as $term) {
-                            $used_terms[$term->term_id] = $term;
-                        }
-                    }
+            if ($terms && !is_wp_error($terms)) {
+                foreach ($terms as $term) {
+                    $used_terms[$term->term_id] = $term;
                 }
             }
-            ?>
+        }
+    }
+    ?>
 
+    <div class="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+        <div class="entry-content alignfull wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow">
+            <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
 
-            <div class="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-                <div class="entry-content alignfull wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow">
-                    <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
                 <?php if (!empty($gallery_image_ids)) : ?>
                     <section class="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-                        <header class="wp-block-group  page-header gallery-header">
+                        <header class="wp-block-group page-header gallery-header">
                             <h1>Découvrez la galerie</h1>
-                            <p></p>
                         </header>
+
                         <div class="wp-block-group gallery-filters is-nowrap is-layout-flex wp-block-group-is-layout-flex" aria-label="Filtres de galerie">
                             <button type="button" class="is-active" data-filter="all">Tout</button>
 
@@ -99,11 +107,11 @@ function gg_extract_gallery_ids($blocks) {
                                     }
                                 }
                                 ?>
-                                <figure
-                                        class="gallery-item"
-                                        data-category="<?php echo esc_attr(implode(' ', $slugs)); ?>"
-                                >
-                                    <span class="tag"><?= esc_attr(implode(' ', $names)); ?></span>
+                                <figure class="gallery-item" data-category="<?php echo esc_attr(implode(' ', $slugs)); ?>">
+                                    <?php if (!empty($names)) : ?>
+                                        <span class="tag"><?php echo esc_html(implode(', ', $names)); ?></span>
+                                    <?php endif; ?>
+
                                     <a href="<?php echo esc_url($full_url); ?>" class="gallery-link">
                                         <?php echo wp_get_attachment_image($image_id, 'large'); ?>
                                     </a>
@@ -120,13 +128,29 @@ function gg_extract_gallery_ids($blocks) {
                 <?php endif; ?>
 
                 <?php endwhile; ?>
-                    </div>
-                </div>
-            </div>
 
-    </main>
+            </div>
+        </div>
+    </div>
+</main>
 
 <?php
-echo do_blocks('<!-- wp:template-part {"slug":"footer","theme":"guillaumegorvel"} /-->');
-wp_footer();
+$page_markup = ob_get_clean();
 ?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+
+<?php echo $header_markup; ?>
+<?php echo $page_markup; ?>
+<?php echo $footer_markup; ?>
+
+<?php wp_footer(); ?>
+</body>
+</html>

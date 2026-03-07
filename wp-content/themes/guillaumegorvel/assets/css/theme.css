@@ -123,6 +123,11 @@ ul.wp-block-list, ol.wp-block-list {
     list-style-type: none;
 }
 
+:where(.wp-site-blocks *:focus) {
+    outline-width: unset!important;
+    outline-style: none!important;
+}
+
 .wp-block-button a {
     color: black !important;
     background: #DEFF00;
