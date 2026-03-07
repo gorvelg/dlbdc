@@ -34,6 +34,22 @@ add_action('init', function () {
         'has_archive'  => true,
         'rewrite'      => ['slug' => 'clients'],
     ]);
+
+    register_post_type('galerie', [
+        'labels' => [
+            'name'          => 'Galerie',
+            'singular_name' => 'Galerie',
+            'add_new_item'  => 'Ajouter une photo',
+            'edit_item'     => 'Modifier une photo',
+            'all_items'     => 'Toutes les photos',
+        ],
+        'public'       => true,
+        'show_in_rest' => true,
+        'menu_icon'    => 'dashicons-format-gallery',
+        'supports'     => ['title'],
+        'has_archive'  => true,
+        'rewrite'      => ['slug' => 'galerie'],
+    ]);
 });
 
 /**
@@ -118,10 +134,28 @@ function theme_enqueue_styles() {
         filemtime(get_stylesheet_directory() . '/assets/css/pages/accueil.css')
     );
 
-    if ( is_front_page() ) {
+    if (is_front_page()) {
         wp_enqueue_style('accueil-style');
     }
 
-    wp_register_script('contact-script', get_stylesheet_directory_uri() . '/assets/js/contact.js');
+    wp_register_script(
+        'contact-script',
+        get_stylesheet_directory_uri() . '/assets/js/contact.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/contact.js'),
+        true
+    );
     wp_enqueue_script('contact-script');
+
+    if (is_page('galerie')){
+        wp_enqueue_script(
+            'gg-gallery-filter',
+            get_stylesheet_directory_uri() . '/assets/js/gallery-filter.js',
+            [],
+            filemtime(get_stylesheet_directory() . '/assets/js/gallery-filter.js'),
+            true
+        );
+    }
+
 }
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
