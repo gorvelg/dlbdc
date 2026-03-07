@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const filterWrap = document.querySelector(".gg-gallery-filters");
-    const items = document.querySelectorAll(".gg-gallery-item");
+    const filterWrap = document.querySelector(".gallery-filters");
+    const items = document.querySelectorAll(".gallery-item");
 
     if (!filterWrap || !items.length) return;
 

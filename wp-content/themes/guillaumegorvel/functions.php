@@ -138,6 +138,17 @@ function theme_enqueue_styles() {
         wp_enqueue_style('accueil-style');
     }
 
+    wp_register_style(
+        'galerie-style',
+        get_stylesheet_directory_uri() . '/assets/css/pages/galerie.css',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/css/pages/galerie.css')
+    );
+
+    if (is_page('galerie')) {
+        wp_enqueue_style('galerie-style');
+    }
+
     wp_register_script(
         'contact-script',
         get_stylesheet_directory_uri() . '/assets/js/contact.js',

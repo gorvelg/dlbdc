@@ -63,17 +63,17 @@ function gg_extract_gallery_ids($blocks) {
             }
             ?>
 
-            <header class="page-header gg-gallery-header">
-                <h1><?php the_title(); ?></h1>
-            </header>
 
             <div class="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
                 <div class="entry-content alignfull wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow">
                     <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
                 <?php if (!empty($gallery_image_ids)) : ?>
                     <section class="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-
-                        <div class="wp-block-group gg-gallery-filters is-nowrap is-layout-flex wp-block-group-is-layout-flex" aria-label="Filtres de galerie">
+                        <header class="wp-block-group  page-header gallery-header">
+                            <h1>Découvrez la galerie</h1>
+                            <p></p>
+                        </header>
+                        <div class="wp-block-group gallery-filters is-nowrap is-layout-flex wp-block-group-is-layout-flex" aria-label="Filtres de galerie">
                             <button type="button" class="is-active" data-filter="all">Tout</button>
 
                             <?php foreach ($used_terms as $term) : ?>
@@ -83,30 +83,33 @@ function gg_extract_gallery_ids($blocks) {
                             <?php endforeach; ?>
                         </div>
 
-                        <div class="wp-block-group gg-gallery-grid is-nowrap is-layout-flex wp-block-group-is-layout-flex">
+                        <div class="wp-block-group gallery-grid is-nowrap is-layout-flex wp-block-group-is-layout-flex">
                             <?php foreach ($gallery_image_ids as $image_id) : ?>
                                 <?php
                                 $terms    = get_the_terms($image_id, $media_taxonomy);
                                 $slugs    = [];
+                                $names    = [];
                                 $caption  = wp_get_attachment_caption($image_id);
                                 $full_url = wp_get_attachment_image_url($image_id, 'full');
 
                                 if ($terms && !is_wp_error($terms)) {
                                     foreach ($terms as $term) {
                                         $slugs[] = $term->slug;
+                                        $names[] = $term->name;
                                     }
                                 }
                                 ?>
                                 <figure
-                                        class="gg-gallery-item"
+                                        class="gallery-item"
                                         data-category="<?php echo esc_attr(implode(' ', $slugs)); ?>"
                                 >
-                                    <a href="<?php echo esc_url($full_url); ?>" class="gg-gallery-link">
+                                    <span class="tag"><?= esc_attr(implode(' ', $names)); ?></span>
+                                    <a href="<?php echo esc_url($full_url); ?>" class="gallery-link">
                                         <?php echo wp_get_attachment_image($image_id, 'large'); ?>
                                     </a>
 
                                     <?php if (!empty($caption)) : ?>
-                                        <figcaption class="gg-gallery-caption">
+                                        <figcaption class="gallery-caption">
                                             <?php echo esc_html($caption); ?>
                                         </figcaption>
                                     <?php endif; ?>
