@@ -96,6 +96,14 @@ add_action('enqueue_block_editor_assets', function () {
     );
 });
 
+add_filter('wpcf7_mail_html_footer', function ($output, $form) {
+    ob_start();
+
+    get_template_part('template-parts/mail/cf7', 'footer');
+
+    return ob_get_clean();
+}, 10, 2);
+
 function theme_enqueue_styles() {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
 
@@ -157,6 +165,15 @@ function theme_enqueue_styles() {
         true
     );
     wp_enqueue_script('contact-script');
+
+    wp_register_script(
+        'animation-script',
+        get_stylesheet_directory_uri() . '/assets/js/animation.js',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/js/animation.js'),
+        true
+    );
+    wp_enqueue_script('animation-script');
 
     if (is_page('galerie')){
         wp_enqueue_script(

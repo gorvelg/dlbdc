@@ -184,3 +184,90 @@ footer.wp-block-template-part {
     margin-block-start: 0;
 }
 
+/* Base commune */
+.wp-block-group.scroll-reveal-left,
+.wp-block-group.scroll-reveal-up,
+.wp-block-group.scroll-reveal-right {
+    opacity: 0;
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+/* Animation depuis la gauche */
+.wp-block-group.scroll-reveal-left {
+    transform: translateX(-60px);
+}
+
+/* Animation depuis le bas */
+.wp-block-group.scroll-reveal-up {
+    transform: translateY(60px);
+}
+
+/* Animation depuis la droite */
+.wp-block-group.scroll-reveal-right {
+    transform: translateX(60px);
+}
+
+/* Etat visible */
+.wp-block-group.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Contenu interne */
+.wp-block-group.scroll-reveal-left p,
+.wp-block-group.scroll-reveal-left img,
+.wp-block-group.scroll-reveal-up p,
+.wp-block-group.scroll-reveal-up img,
+.wp-block-group.scroll-reveal-right p,
+.wp-block-group.scroll-reveal-right img {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Eléments internes pour l'effet gauche */
+.wp-block-group.scroll-reveal-left p,
+.wp-block-group.scroll-reveal-left img {
+    transform: translateX(-30px);
+}
+
+/* Eléments internes pour l'effet bas */
+.wp-block-group.scroll-reveal-up p,
+.wp-block-group.scroll-reveal-up img {
+    transform: translateY(25px);
+}
+
+/* Eléments internes pour l'effet droite */
+.wp-block-group.scroll-reveal-right p,
+.wp-block-group.scroll-reveal-right img {
+    transform: translateX(30px);
+}
+
+/* Quand visible */
+.wp-block-group.scroll-reveal-left.is-visible p,
+.wp-block-group.scroll-reveal-left.is-visible img,
+.wp-block-group.scroll-reveal-up.is-visible p,
+.wp-block-group.scroll-reveal-up.is-visible img,
+.wp-block-group.scroll-reveal-right.is-visible p,
+.wp-block-group.scroll-reveal-right.is-visible img {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Délais */
+.wp-block-group.is-visible p {
+    transition-delay: 0.1s;
+}
+
+.wp-block-group.is-visible img:nth-of-type(1) {
+    transition-delay: 0.2s;
+}
+
+.wp-block-group.is-visible img:nth-of-type(2) {
+    transition-delay: 0.35s;
+}
+
+.wp-block-group.is-visible img:nth-of-type(3) {
+    transition-delay: 0.5s;
+}
