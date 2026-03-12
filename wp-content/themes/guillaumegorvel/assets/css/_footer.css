@@ -103,6 +103,8 @@ footer.wp-block-template-part .footer-content .wp-block-site-logo {
     align-items: center;
     justify-content: center;
 }
+
+
 @media (max-width: 1024px) {
     .footer-content {
         flex-wrap: wrap!important;

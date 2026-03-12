@@ -104,6 +104,7 @@ add_filter('wpcf7_mail_html_footer', function ($output, $form) {
     return ob_get_clean();
 }, 10, 2);
 
+
 function theme_enqueue_styles() {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
 
