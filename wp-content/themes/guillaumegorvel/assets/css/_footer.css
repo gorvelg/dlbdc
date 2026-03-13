@@ -104,6 +104,24 @@ footer.wp-block-template-part .footer-content .wp-block-site-logo {
     justify-content: center;
 }
 
+footer.wp-block-template-part .footer-content ul li a {
+    position: relative;
+}
+footer.wp-block-template-part .footer-content ul li:not(.tel):not(.mail) a:hover::before {
+    width: 100%;
+}
+
+footer.wp-block-template-part .footer-content ul li:not(.tel):not(.mail) a::before {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: black;
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: all ease .5s;
+}
 
 @media (max-width: 1024px) {
     .footer-content {

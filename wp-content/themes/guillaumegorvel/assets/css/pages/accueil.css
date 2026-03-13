@@ -1,18 +1,128 @@
-.hero {
-    justify-content: space-between;
-}
 .hero-img img {
     border-radius: 24px;
 }
+section:has(.hero){
+    height: 100vh;
+}
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    justify-content: space-between;
+}
+
+section:has(.hero):after {
+    content: "";
+    position: absolute;
+    bottom: -199px;
+    display: block;
+    width: 100%;
+    height: 200px;
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_book-top.svg) no-repeat top center;
+    background-size: 101%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+section:has(.about):after {
+    content: "";
+    position: relative;
+    bottom: -1px;
+    display: block;
+    width: 100%;
+    height: 200px;
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_book-bottom.svg) no-repeat bottom center;
+    background-size: 101%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    width: 120px;
+    height: 220px;
+    border-radius: 999px;
+    background: #deff00;
+    z-index: 10;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+.hero > :not(.bubble) {
+    position: relative;
+    z-index: 2;
+}
+
+/* Bulle 1 */
+.bubble-1 {
+    top: 60px;
+    right: 4%;
+    background: #deff00;
+    scale: 1.3;
+}
+
+/* Bulle 2 */
+.bubble-2 {
+    top: 712px;
+    right: 2%;
+    background: #483778;
+    z-index: 1;
+}
+
+/* Bulle 3 */
+.bubble-3 {
+    top: 120px;
+    right: 33%;
+    background: #483778;
+    scale: .8;
+    z-index: 1;
+}
+
+/* Bulle 4 */
+.bubble-4 {
+    top: 610px;
+    right: 28%;
+    background: #deff00;
+    scale: .5;
+}
+
+/*.bubble-5 {*/
+/*    bottom: 80px;*/
+/*    right: 39%;*/
+/*    background: #493777;*/
+/*    scale: 1.2;*/
+/*    z-index: 1;*/
+/*}*/
+
+/*.bubble-6 {*/
+/*    bottom: 80px;*/
+/*    right: 39%;*/
+/*    background: #493777;*/
+/*    scale: 1;*/
+/*    z-index: 1;*/
+/*}*/
 
 @media (max-width: 1024px){
     .hero {
         flex-direction: column;
+        justify-content: center;
+        padding-bottom: var(--padding-x);
+    }
+    section:has(.hero) {
+        height: auto;
+    }
+    section:has(.hero):after {
+        bottom: -199px;
+    }
+
+    .bubble {
+        display: none;
     }
 }
 
 .about{
-    padding-block: var(--padding-x);
+    padding-block: 150px var(--padding-x);
     scroll-margin-top: 55px;
 }
 
@@ -39,6 +149,7 @@ section:has(.about) svg.book-bottom {
 section:has(.about) {
     position: relative;
     z-index: 0;
+    margin-top: 0;
     /*overflow: hidden;*/
 }
 

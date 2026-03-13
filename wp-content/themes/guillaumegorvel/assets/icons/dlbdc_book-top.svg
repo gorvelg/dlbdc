@@ -1,0 +1,10 @@
+<svg class="book-top" width="1920" height="120" viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_121_65)">
+        <path d="M1920 0H0V120H451.104C916.64 116.24 963.92 3.86 963.92 3.86C963.92 3.86 1011.2 116.24 1476.8 120H1920V0Z" fill="white"></path>
+    </g>
+    <defs>
+        <clipPath id="clip0_121_65">
+            <rect width="1920" height="120" fill="white"></rect>
+        </clipPath>
+    </defs>
+</svg>

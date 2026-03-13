@@ -109,6 +109,8 @@ p, a, li {
 
 main.main-content {
     margin-top: 0!important;
+}
+body:not(.home) main.main-content{
     padding-top: var(--header-h)!important;
 }
 main.main-content > .wp-block-group:has(.entry-content){
@@ -182,6 +184,12 @@ main.main-content .entry-content .wp-block-columns.alignfull>.wp-block-columns {
 
 footer.wp-block-template-part {
     margin-block-start: 0;
+}
+
+@media (max-width: 1024px){
+    main.main-content {
+        padding-top: var(--header-h);
+    }
 }
 
 /* Base commune */
