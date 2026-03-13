@@ -123,7 +123,7 @@ section:has(.about):after {
 
 .about{
     padding-block: 150px var(--padding-x);
-    scroll-margin-top: 55px;
+    scroll-margin-top: 0;
 }
 
 section:has(.about){
