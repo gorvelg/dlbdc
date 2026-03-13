@@ -55,5 +55,6 @@ h1 {
     object-fit: cover;
     aspect-ratio: 1 / 1;
     height: auto;
+    display: block;
 }
 

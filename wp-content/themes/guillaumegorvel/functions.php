@@ -96,11 +96,15 @@ add_action('enqueue_block_editor_assets', function () {
     );
 });
 
+add_filter('wpcf7_mail_html_header', function ($output, $form) {
+    ob_start();
+    get_template_part('view/mail/mail', 'header');
+    return ob_get_clean();
+}, 10, 2);
+
 add_filter('wpcf7_mail_html_footer', function ($output, $form) {
     ob_start();
-
-    get_template_part('template-parts/mail/cf7', 'footer');
-
+    get_template_part('view/mail/mail', 'footer');
     return ob_get_clean();
 }, 10, 2);
 
@@ -156,6 +160,17 @@ function theme_enqueue_styles() {
 
     if (is_page('galerie')) {
         wp_enqueue_style('galerie-style');
+    }
+
+    wp_register_style(
+        'mentions-legales-style',
+        get_stylesheet_directory_uri() . '/assets/css/pages/mentions-legales.css',
+        [],
+        filemtime(get_stylesheet_directory() . '/assets/css/pages/mentions-legales.css')
+    );
+
+    if (is_page('mentions-legales')) {
+        wp_enqueue_style('mentions-legales-style');
     }
 
     wp_register_script(
