@@ -175,12 +175,12 @@ form .wpcf7-not-valid-tip {
 }
 
 /* Chaque item */
-.wpcf7-form .wpcf7-checkbox .wpcf7-list-item{
+.wpcf7-form  .wpcf7-list-item{
     margin: 0; /* CF7 met parfois des marges */
 }
 
 /* Le label devient le "bouton" cliquable */
-.wpcf7-form .wpcf7-checkbox .wpcf7-list-item label{
+.wpcf7-form  .wpcf7-list-item label{
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -189,7 +189,7 @@ form .wpcf7-not-valid-tip {
 }
 
 /* On cache l'input mais on le garde accessible */
-.wpcf7-form .wpcf7-checkbox input[type="checkbox"]{
+.wpcf7-form  input[type="checkbox"]{
     position: absolute;
     opacity: 0;
     width: 1px;
@@ -197,13 +197,13 @@ form .wpcf7-not-valid-tip {
 }
 
 /* On dessine la case AVANT le texte */
-.wpcf7-form .wpcf7-checkbox .wpcf7-list-item-label{
+.wpcf7-form  .wpcf7-list-item-label{
     position: relative;
     padding-left: 30px;
 }
 
 /* La case */
-.wpcf7-form .wpcf7-checkbox .wpcf7-list-item-label::before{
+.wpcf7-form  .wpcf7-list-item-label::before{
     content: "";
     position: absolute;
     left: 0;
@@ -220,7 +220,7 @@ form .wpcf7-not-valid-tip {
 }
 
 /* Le "check" */
-.wpcf7-form .wpcf7-checkbox .wpcf7-list-item-label::after{
+.wpcf7-form  .wpcf7-list-item-label::after{
     content: "";
     position: absolute;
     left: 0;
@@ -235,19 +235,47 @@ form .wpcf7-not-valid-tip {
     transition: .15s ease;
 }
 
-.wpcf7-form .wpcf7-checkbox label:has(input:checked) .wpcf7-list-item-label::after{
+.wpcf7-form  label:has(input:checked) .wpcf7-list-item-label::after{
     opacity: 1;
 }
 
-.wpcf7-form .wpcf7-checkbox input:checked + .wpcf7-list-item-label::after{
+.wpcf7-form  input:checked + .wpcf7-list-item-label::after{
     opacity: 1;
     background-image: url("/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_checkbox-checked.svg");
 }
 
-.wpcf7-form .wpcf7-checkbox input:focus-visible + .wpcf7-list-item-label::before{
+.wpcf7-form  input:focus-visible + .wpcf7-list-item-label::before{
     box-shadow: 0 0 0 4px rgba(37,99,235,.25);
 }
 
+.form-success-message {
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #e8f7e8;
+    color: #1f5f2c;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.form-success-message.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-success-message.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
 
 
 @media screen and (max-width: 768px) {

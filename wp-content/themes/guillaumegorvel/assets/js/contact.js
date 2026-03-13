@@ -32,5 +32,30 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    document.addEventListener('wpcf7mailsent', function (event) {
+        const form = event.target;
+        let notice = form.querySelector('.form-success-message');
+
+        if (!notice) {
+            notice = document.createElement('div');
+            notice.className = 'form-success-message is-hidden';
+            form.appendChild(notice);
+        }
+
+        notice.textContent = 'Votre message a bien été envoyé.';
+        notice.classList.remove('is-hidden');
+        notice.classList.add('is-visible');
+
+        if (notice.hideTimeout) {
+            clearTimeout(notice.hideTimeout);
+        }
+
+        notice.hideTimeout = setTimeout(() => {
+            notice.classList.remove('is-visible');
+            notice.classList.add('is-hidden');
+        }, 5000);
+    }, false);
+
 });
 
