@@ -9,7 +9,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 300px;
+    aspect-ratio: 1/1;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
 }
+
+.is-logo__name {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    background: white;
+    transition: opacity ease .5s;
+
+}
+
+.is-logo:hover .is-logo__name {
+    opacity: 1;
+}
+
 .is-logo-empty {
     background: white;
     display: flex;
@@ -25,12 +48,12 @@
     .swiper-pagination {
         display: none;
     }
-    .is-logo-empty{
+    .is-logo-empty, .is-logo{
         width: 100%;
     }
 }
 
-.is-logo-empty p {
+.is-logo-empty p, .is-logo__name{
     margin: 0;
     font-size: 24px;
     font-weight: 600;

@@ -35,21 +35,6 @@ add_action('init', function () {
         'rewrite'      => ['slug' => 'clients'],
     ]);
 
-    register_post_type('galerie', [
-        'labels' => [
-            'name'          => 'Galerie',
-            'singular_name' => 'Galerie',
-            'add_new_item'  => 'Ajouter une photo',
-            'edit_item'     => 'Modifier une photo',
-            'all_items'     => 'Toutes les photos',
-        ],
-        'public'       => true,
-        'show_in_rest' => true,
-        'menu_icon'    => 'dashicons-format-gallery',
-        'supports'     => ['title'],
-        'has_archive'  => true,
-        'rewrite'      => ['slug' => 'galerie'],
-    ]);
 });
 
 /**
@@ -169,7 +154,7 @@ function theme_enqueue_styles() {
         filemtime(get_stylesheet_directory() . '/assets/css/pages/mentions-legales.css')
     );
 
-    if (is_page('mentions-legales')) {
+    if (is_page('mentions-legales') || is_page('politique-de-confidentialite')) {
         wp_enqueue_style('mentions-legales-style');
     }
 

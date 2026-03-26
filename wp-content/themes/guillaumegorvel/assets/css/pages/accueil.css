@@ -240,6 +240,25 @@ section:has(.about)::before {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+.papillon {
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_papillon.svg);
+    height: 57px;
+    width: 61px;
+    z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.chenille {
+    background: url(/wp-content/themes/guillaumegorvel/assets/icons/dlbdc_chenille.svg);
+    height: 61px;
+    width: 50px;
+    z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 @media (max-width: 1400px) {
     .about .wp-block-image {
         width: 400px;
@@ -285,6 +304,15 @@ section:has(.about)::before {
         height: 36px;
         width: 36px;
     }
+    .papillon {
+        height: 40px;
+        width: 43px;
+    }
+    .chenille {
+        height: 40px;
+        width: 33px;
+    }
+
 }
 @media (max-width: 550px) {
     .about-cards .about-card {
@@ -341,17 +369,24 @@ section:has(.prestation)::after {
     margin-bottom: 70px;
 }
 .prestation-grid{
-    grid-template-columns: repeat(2, minmax(0, 514px));
+    grid-template-columns: repeat(2, minmax(0, 530px));
     justify-content: center;
     gap: 32px;
 }
 .prestation-item {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 .prestation-item h3 {
     font-family: "Nunito", sans-serif;
     font-size: var(--h3);
     font-weight: 800;
+    width: 100%;
+}
+.prestation-item-inner{
+    margin-top: 0;
+    height: 100%;
 }
 .prestation-item-content{
     display: grid;
@@ -360,6 +395,7 @@ section:has(.prestation)::after {
     margin: 0;
     padding: 24px 24px 48px 12px;
     gap: 12px;
+    height: 100%;
 }
 
 @media (max-width: 1400px) {

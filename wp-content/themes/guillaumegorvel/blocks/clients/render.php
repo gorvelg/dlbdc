@@ -37,6 +37,7 @@ if (!$q->have_posts()) {
                         <?php else : ?>
                             <div class="is-logo">
                                 <?= wp_get_attachment_image($logo['ID'], 'medium'); ?>
+                                <p class="is-logo__name"><?= esc_html($nom) ?></p>
                             </div>
                         <?php endif ?>
                     </div>
